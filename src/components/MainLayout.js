@@ -55,7 +55,7 @@ const MainLayout = () => {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-1.5 flex flex-col sm:flex-row w-full sm:w-auto space-y-1 sm:space-y-0 sm:space-x-1">
             <button 
               onClick={() => handleTabChange('transactions')}
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
+              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ₹{
                 activeTab === 'transactions' 
                   ? 'bg-blue-600 text-white shadow-sm' 
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -65,7 +65,7 @@ const MainLayout = () => {
             </button>
             <button 
               onClick={() => handleTabChange('categories')}
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
+              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ₹{
                 activeTab === 'categories' 
                   ? 'bg-blue-600 text-white shadow-sm' 
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -75,7 +75,7 @@ const MainLayout = () => {
             </button>
             <button 
               onClick={() => handleTabChange('charts')}
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
+              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ₹{
                 activeTab === 'charts' 
                   ? 'bg-blue-600 text-white shadow-sm' 
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'

@@ -4,12 +4,12 @@ import { formatCurrency } from '../utils/formatUtils';
 
 const SummaryCard = ({ title, amount, icon, className, trend, percentage }) => {
   return (
-    <div className={`${className} transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg overflow-hidden transform hover:-translate-y-1`}>
+    <div className={`₹{className} transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg overflow-hidden transform hover:-translate-y-1`}>
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="rounded-full bg-opacity-20 p-3">{icon}</div>
           {trend && (
-            <div className={`flex items-center text-sm ${trend > 0 ? 'text-green-500' : 'text-red-500'}`}>
+            <div className={`flex items-center text-sm ₹{trend > 0 ? 'text-green-500' : 'text-red-500'}`}>
               <span className="mr-1">{trend > 0 ? '↑' : '↓'}</span>
               <span>{Math.abs(trend)}%</span>
             </div>
@@ -22,7 +22,7 @@ const SummaryCard = ({ title, amount, icon, className, trend, percentage }) => {
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
               <div 
                 className="bg-blue-600 h-2.5 rounded-full" 
-                style={{ width: `${Math.min(percentage, 100)}%` }}
+                style={{ width: `₹{Math.min(percentage, 100)}%` }}
               ></div>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{percentage.toFixed(0)}% of total</p>
@@ -121,10 +121,10 @@ const Dashboard = () => {
         <SummaryCard
           title="Net Balance"
           amount={netBalance}
-          className={`border-l-4 ${netBalance >= 0 ? 'border-blue-500' : 'border-yellow-500'}`}
+          className={`border-l-4 ₹{netBalance >= 0 ? 'border-blue-500' : 'border-yellow-500'}`}
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" 
-              className={`h-8 w-8 ${netBalance >= 0 ? 'text-blue-500' : 'text-yellow-500'}`} 
+              className={`h-8 w-8 ₹{netBalance >= 0 ? 'text-blue-500' : 'text-yellow-500'}`} 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -149,7 +149,7 @@ const Dashboard = () => {
                       <div 
                         className="rounded-full h-2" 
                         style={{ 
-                          width: `${Math.min(category.percentage, 100)}%`,
+                          width: `₹{Math.min(category.percentage, 100)}%`,
                           backgroundColor: category.color 
                         }}
                       ></div>
@@ -171,7 +171,7 @@ const Dashboard = () => {
                     className="flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                   >
                     <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
+                      className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ₹{
                         transaction.type === 'income' ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'
                       }`}
                     >
@@ -189,7 +189,7 @@ const Dashboard = () => {
                       <p className="text-sm font-medium text-gray-800 dark:text-white truncate">{transaction.description}</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{new Date(transaction.date).toLocaleDateString()}</p>
                     </div>
-                    <div className={`text-sm font-medium ${transaction.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                    <div className={`text-sm font-medium ₹{transaction.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                       {transaction.type === 'income' ? '+' : '-'}{formatCurrency(transaction.amount)}
                     </div>
                   </div>

@@ -1,7 +1,9 @@
 {
-  "name": "expense-tracker",
-  "version": "0.1.0",
+  "name": "budgetbuddy",
+  "version": "1.0.0",
   "private": true,
+  "author": "Ashutosh Singh",
+  "description": "BudgetBuddy - A personal finance dashboard in Indian Rupees (₹) with analytics, charts, and budget alerts.",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

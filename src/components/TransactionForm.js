@@ -114,14 +114,14 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
         <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-0">
           {editTransaction ? 'Edit Transaction' : 'Add Transaction'}
         </h2>
-        <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-medium ${formData.type === 'income' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'}`}>
+        <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-medium ₹{formData.type === 'income' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'}`}>
           {formData.type === 'income' ? 'Income' : 'Expense'}
         </div>
       </div>
       
       <div className="mb-4 sm:mb-6">
         <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg p-1 sm:p-1.5 mb-4">
-          <label className={`flex-1 flex justify-center items-center rounded-md py-1.5 sm:py-2 cursor-pointer transition-all text-xs sm:text-sm ${formData.type === 'expense' ? 'bg-white dark:bg-gray-600 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-650'}`}>
+          <label className={`flex-1 flex justify-center items-center rounded-md py-1.5 sm:py-2 cursor-pointer transition-all text-xs sm:text-sm ₹{formData.type === 'expense' ? 'bg-white dark:bg-gray-600 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-650'}`}>
             <input
               type="radio"
               className="sr-only"
@@ -135,7 +135,7 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
             </svg>
             <span className="font-medium">Expense</span>
           </label>
-          <label className={`flex-1 flex justify-center items-center rounded-md py-1.5 sm:py-2 cursor-pointer transition-all text-xs sm:text-sm ${formData.type === 'income' ? 'bg-white dark:bg-gray-600 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-650'}`}>
+          <label className={`flex-1 flex justify-center items-center rounded-md py-1.5 sm:py-2 cursor-pointer transition-all text-xs sm:text-sm ₹{formData.type === 'income' ? 'bg-white dark:bg-gray-600 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-650'}`}>
             <input
               type="radio"
               className="sr-only"
@@ -166,7 +166,7 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
             type="text"
             id="description"
             name="description"
-            className={`py-2.5 pl-10 pr-3 block w-full rounded-lg border ${errors.description ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
+            className={`py-2.5 pl-10 pr-3 block w-full rounded-lg border ₹{errors.description ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
             placeholder="Grocery shopping, Salary, etc."
             value={formData.description}
             onChange={handleChange}
@@ -181,13 +181,13 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
         </label>
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span className="text-gray-500 dark:text-gray-400">$</span>
+            <span className="text-gray-500 dark:text-gray-400">₹</span>
           </div>
           <input
             type="number"
             id="amount"
             name="amount"
-            className={`py-2.5 pl-8 pr-3 block w-full rounded-lg border ${errors.amount ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
+            className={`py-2.5 pl-8 pr-3 block w-full rounded-lg border ₹{errors.amount ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
             placeholder="0.00"
             min="0"
             step="0.01"
@@ -212,7 +212,7 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
             type="date"
             id="date"
             name="date"
-            className={`py-2.5 pl-10 pr-3 block w-full rounded-lg border ${errors.date ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
+            className={`py-2.5 pl-10 pr-3 block w-full rounded-lg border ₹{errors.date ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'} shadow-sm dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all`}
             value={formData.date}
             onChange={handleChange}
           />
@@ -233,7 +233,7 @@ const TransactionForm = ({ editTransaction = null, onClose }) => {
           <select
             id="category"
             name="category"
-            className={`py-2.5 pl-10 pr-3 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all ${formData.type === 'income' ? 'bg-gray-100 dark:bg-gray-600 cursor-not-allowed' : ''}`}
+            className={`py-2.5 pl-10 pr-3 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all ₹{formData.type === 'income' ? 'bg-gray-100 dark:bg-gray-600 cursor-not-allowed' : ''}`}
             value={formData.category}
             onChange={handleChange}
             disabled={formData.type === 'income'}

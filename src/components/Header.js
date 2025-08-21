@@ -11,7 +11,7 @@ const Header = () => {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 dark:text-blue-400" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1.5l-1.8-1.8A2 2 0 0012.2 2H7.8a2 2 0 00-1.4.6L4.5 4H4zm7 5a1 1 0 10-2 0v1H8a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V9z" clipRule="evenodd" />
           </svg>
-          <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">Expense Tracker</h1>
+          <h1 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">BudgetBuddy</h1>
         </div>
         <div className="flex items-center">
           <button

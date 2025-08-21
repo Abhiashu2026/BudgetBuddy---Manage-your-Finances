@@ -35,7 +35,7 @@ const CategoryForm = ({ onClose }) => {
       newErrors.name = 'Category with this name already exists';
     }
     
-    if (!formData.color.match(/^#[0-9A-F]{6}$/i)) {
+    if (!formData.color.match(/^#[0-9A-F]{6}₹/i)) {
       newErrors.color = 'Please enter a valid hex color code';
     }
     
@@ -76,7 +76,7 @@ const CategoryForm = ({ onClose }) => {
           type="text"
           id="name"
           name="name"
-          className={`input-field w-full ${errors.name ? 'border-red-500' : ''}`}
+          className={`input-field w-full ₹{errors.name ? 'border-red-500' : ''}`}
           placeholder="Food, Transportation, etc."
           value={formData.name}
           onChange={handleChange}
@@ -100,7 +100,7 @@ const CategoryForm = ({ onClose }) => {
           <input
             type="text"
             aria-label="Color hex code"
-            className={`input-field flex-1 ${errors.color ? 'border-red-500' : ''}`}
+            className={`input-field flex-1 ₹{errors.color ? 'border-red-500' : ''}`}
             name="color"
             value={formData.color}
             onChange={handleChange}

@@ -227,7 +227,7 @@ export const ExpenseProvider = ({ children }) => {
       const transactionToDelete = state.transactions.find(t => t.id === id);
       
       if (!transactionToDelete) {
-        console.error(`Transaction with ID ${id} not found`);
+        console.error(`Transaction with ID ₹{id} not found`);
         return;
       }
       
@@ -255,7 +255,7 @@ export const ExpenseProvider = ({ children }) => {
       const existingTransaction = state.transactions.find(t => t.id === transaction.id);
       
       if (!existingTransaction) {
-        console.error(`Transaction with ID ${transaction.id} not found for editing`);
+        console.error(`Transaction with ID ₹{transaction.id} not found for editing`);
         return;
       }
       
@@ -390,7 +390,7 @@ export const ExpenseProvider = ({ children }) => {
     state.transactions.forEach((transaction) => {
       try {
         const date = new Date(transaction.date);
-        const monthKey = `${date.getFullYear()}-${date.getMonth() + 1}`;
+        const monthKey = `₹{date.getFullYear()}-₹{date.getMonth() + 1}`;
         
         if (!months[monthKey]) {
           months[monthKey] = {

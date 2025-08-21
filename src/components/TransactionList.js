@@ -8,17 +8,17 @@ const TransactionItem = ({ transaction, onEdit, onDelete }) => {
   const category = categories.find((cat) => cat.id === transaction.category);
   
   const confirmDelete = () => {
-    if (window.confirm(`Are you sure you want to delete "${transaction.description}"?`)) {
+    if (window.confirm(`Are you sure you want to delete "₹{transaction.description}"?`)) {
       console.log("Transaction item - Deleting transaction with ID:", transaction.id);
       onDelete(transaction.id);
     }
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 mb-3 overflow-hidden border-l-4 ${transaction.type === 'income' ? 'border-green-500' : 'border-red-500'}`}>
+    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 mb-3 overflow-hidden border-l-4 ₹{transaction.type === 'income' ? 'border-green-500' : 'border-red-500'}`}>
       <div className="p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div className="flex items-center space-x-4">
-          <div className={`hidden sm:flex w-10 h-10 rounded-full flex-shrink-0 items-center justify-center ${
+          <div className={`hidden sm:flex w-10 h-10 rounded-full flex-shrink-0 items-center justify-center ₹{
             transaction.type === 'income' 
               ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' 
               : 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
@@ -46,7 +46,7 @@ const TransactionItem = ({ transaction, onEdit, onDelete }) => {
                 <span 
                   className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" 
                   style={{ 
-                    backgroundColor: `${category.color}20`, 
+                    backgroundColor: `₹{category.color}20`, 
                     color: category.color 
                   }}
                 >
@@ -57,7 +57,7 @@ const TransactionItem = ({ transaction, onEdit, onDelete }) => {
           </div>
         </div>
         <div className="flex items-center justify-between sm:justify-end space-x-4">
-          <span className={`text-base sm:text-lg font-bold whitespace-nowrap ${transaction.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+          <span className={`text-base sm:text-lg font-bold whitespace-nowrap ₹{transaction.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
             {transaction.type === 'income' ? '+' : '-'} {formatCurrency(transaction.amount)}
           </span>
           <div className="flex space-x-1">
@@ -122,7 +122,7 @@ const TransactionList = () => {
         // Set a minimum height of 400px, whichever is larger
         const optimalHeight = Math.max(400, containerTop - 160);
         
-        setListHeight(`${optimalHeight}px`);
+        setListHeight(`₹{optimalHeight}px`);
       } else {
         // If container isn't found, use a default fixed height
         setListHeight('500px');

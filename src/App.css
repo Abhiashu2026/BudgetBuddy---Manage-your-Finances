@@ -14,18 +14,33 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--header-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-color);
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.dark-toggle-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight: bold;
+}
+
+.dark-toggle-btn:hover {
+  opacity: 0.8;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +50,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Light Mode Variables */
+body.light-mode {
+  --header-bg: #282c34;
+  --text-color: white;
+  --btn-bg: #61dafb;
+  --btn-text: #000;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --header-bg: #1a1a1a;
+  --text-color: white;
+  --btn-bg: #444;
+  --btn-text: #fff;
 }

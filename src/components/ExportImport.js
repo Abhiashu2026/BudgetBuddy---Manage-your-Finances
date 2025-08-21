@@ -24,7 +24,7 @@ const ExportImport = () => {
 
       if (format === 'json') {
         content = JSON.stringify(dataToExport, null, 2);
-        filename = `expense-tracker-export-${new Date().toISOString().split('T')[0]}.json`;
+        filename = `expense-tracker-export-₹{new Date().toISOString().split('T')[0]}.json`;
         contentType = 'application/json';
       } else if (format === 'csv') {
         // Create CSV header
@@ -32,11 +32,11 @@ const ExportImport = () => {
         
         // Convert transactions to CSV rows
         const csvRows = transactions.map(transaction => {
-          return `${transaction.date},"${transaction.description}",${transaction.category},${transaction.amount},${transaction.type}`;
+          return `₹{transaction.date},"₹{transaction.description}",₹{transaction.category},₹{transaction.amount},₹{transaction.type}`;
         }).join('\n');
         
         content = csvHeader + csvRows;
-        filename = `expense-tracker-export-${new Date().toISOString().split('T')[0]}.csv`;
+        filename = `expense-tracker-export-₹{new Date().toISOString().split('T')[0]}.csv`;
         contentType = 'text/csv';
       }
 
@@ -52,10 +52,10 @@ const ExportImport = () => {
       URL.revokeObjectURL(url);
       
       // Show success message
-      setImportSuccess(`Data exported successfully as ${format.toUpperCase()}`);
+      setImportSuccess(`Data exported successfully as ₹{format.toUpperCase()}`);
       setTimeout(() => setImportSuccess(''), 3000);
     } catch (error) {
-      setImportError(`Export failed: ${error.message}`);
+      setImportError(`Export failed: ₹{error.message}`);
       setTimeout(() => setImportError(''), 3000);
     } finally {
       setIsExporting(false);
@@ -89,13 +89,13 @@ const ExportImport = () => {
             categories: data.categories || [],
           });
           
-          setImportSuccess(`Data imported successfully! Added ${data.transactions.length} transactions and ${data.categories?.length || 0} categories.`);
+          setImportSuccess(`Data imported successfully! Added ₹{data.transactions.length} transactions and ₹{data.categories?.length || 0} categories.`);
           setImportError('');
         } else {
           throw new Error('Unsupported file format. Please use JSON files only.');
         }
       } catch (error) {
-        setImportError(`Import failed: ${error.message}`);
+        setImportError(`Import failed: ₹{error.message}`);
         setImportSuccess('');
       } finally {
         setIsImporting(false);

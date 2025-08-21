@@ -81,7 +81,7 @@ export const ExpensePieChart = () => {
             const label = context.label || '';
             const value = context.raw || 0;
             const percentage = categoryData[context.dataIndex]?.percentage.toFixed(1) || 0;
-            return `${label}: ${formatCurrency(value)} (${percentage}%)`;
+            return `₹{label}: ₹{formatCurrency(value)} (₹{percentage}%)`;
           }
         }
       }
@@ -184,7 +184,7 @@ export const IncomeExpenseBarChart = () => {
           label: function(context) {
             const label = context.dataset.label || '';
             const value = context.raw || 0;
-            return `${label}: ${formatCurrency(value)}`;
+            return `₹{label}: ₹{formatCurrency(value)}`;
           }
         }
       }
@@ -237,12 +237,12 @@ export const IncomeExpenseBarChart = () => {
               <div className="flex-1 mx-4">
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div 
-                    className={`h-2 rounded-full ${item.net >= 0 ? 'bg-green-500' : 'bg-red-500'}`}
-                    style={{ width: `${Math.min(Math.abs(item.percentage), 100)}%` }}
+                    className={`h-2 rounded-full ₹{item.net >= 0 ? 'bg-green-500' : 'bg-red-500'}`}
+                    style={{ width: `₹{Math.min(Math.abs(item.percentage), 100)}%` }}
                   ></div>
                 </div>
               </div>
-              <span className={`text-sm font-medium ${item.net >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+              <span className={`text-sm font-medium ₹{item.net >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                 {formatCurrency(item.net)}
               </span>
             </div>
@@ -333,7 +333,7 @@ export const SpendingTrendsLineChart = () => {
           label: function(context) {
             const label = context.dataset.label || '';
             const value = context.raw || 0;
-            return `${label}: ${formatCurrency(value)}`;
+            return `₹{label}: ₹{formatCurrency(value)}`;
           }
         }
       }
@@ -447,7 +447,7 @@ export const CategoryDoughnutChart = () => {
             const label = context.label || '';
             const value = context.raw || 0;
             const percentage = categoryData[context.dataIndex]?.percentage.toFixed(1) || 0;
-            return `${label}: ${formatCurrency(value)} (${percentage}%)`;
+            return `₹{label}: ₹{formatCurrency(value)} (₹{percentage}%)`;
           }
         }
       }
@@ -583,7 +583,7 @@ export const MonthlyComparisonChart = () => {
           label: function(context) {
             const label = context.dataset.label || '';
             const value = context.raw || 0;
-            return `${label}: ${formatCurrency(value)}`;
+            return `₹{label}: ₹{formatCurrency(value)}`;
           },
           afterBody: function(context) {
             if (context.length === 0 || context[0].dataIndex === 0) return null;
@@ -597,7 +597,7 @@ export const MonthlyComparisonChart = () => {
             else if (datasetIndex === 2) change = momChanges[dataIndex].savings;
             
             const sign = change >= 0 ? '+' : '';
-            return [`Month-over-month: ${sign}${change.toFixed(1)}%`];
+            return [`Month-over-month: ₹{sign}₹{change.toFixed(1)}%`];
           }
         }
       }
@@ -647,19 +647,19 @@ export const MonthlyComparisonChart = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-gray-600 dark:text-gray-300">Income</span>
-                  <span className={`text-xs font-medium ${change.income >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                  <span className={`text-xs font-medium ₹{change.income >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                     {change.income >= 0 ? '+' : ''}{change.income.toFixed(1)}%
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-gray-600 dark:text-gray-300">Expenses</span>
-                  <span className={`text-xs font-medium ${change.expense <= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                  <span className={`text-xs font-medium ₹{change.expense <= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                     {change.expense >= 0 ? '+' : ''}{change.expense.toFixed(1)}%
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-gray-600 dark:text-gray-300">Savings</span>
-                  <span className={`text-xs font-medium ${change.savings >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                  <span className={`text-xs font-medium ₹{change.savings >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                     {change.savings >= 0 ? '+' : ''}{change.savings.toFixed(1)}%
                   </span>
                 </div>
@@ -691,7 +691,7 @@ const ExpenseChart = () => {
           {tabs.map(tab => (
             <button
               key={tab.id}
-              className={`py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium rounded-md transition-all flex-shrink-0 ${
+              className={`py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium rounded-md transition-all flex-shrink-0 ₹{
                 activeTab === tab.id 
                   ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' 
                   : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
